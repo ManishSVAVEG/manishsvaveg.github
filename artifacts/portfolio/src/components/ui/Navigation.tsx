@@ -12,7 +12,7 @@ const links = [
 ];
 
 export default function Navigation() {
-  const [active, setActive]   = useState('HOME');
+  const [active, setActive]     = useState('HOME');
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -41,62 +41,81 @@ export default function Navigation() {
       key={link.name}
       href={link.href}
       onClick={onClick}
-      className={`text-xs font-mono tracking-widest transition-all duration-300 relative
-        ${active === link.name ? 'text-primary neon-text-primary' : 'text-muted-foreground hover:text-foreground'}`}
+      className={`text-[10px] font-mono tracking-[0.2em] transition-all duration-300 relative pb-1
+        ${active === link.name
+          ? 'text-primary'
+          : 'text-muted-foreground hover:text-foreground/80'}`}
     >
       {link.name}
-      {active === link.name && (
-        <span className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-1 h-1 bg-primary rounded-full shadow-[0_0_5px_rgba(0,212,255,0.8)]" />
-      )}
+      {/* Active underline dot */}
+      <span
+        className={`absolute -bottom-0.5 left-1/2 -translate-x-1/2 rounded-full transition-all duration-300 ${
+          active === link.name
+            ? 'w-4 h-[2px] bg-primary shadow-[0_0_8px_rgba(0,212,255,0.9)] opacity-100'
+            : 'w-0 h-[2px] bg-primary opacity-0'
+        }`}
+      />
     </a>
   );
 
   return (
     <>
-      <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300
-        ${scrolled ? 'bg-background/80 backdrop-blur-md border-b border-primary/20 shadow-[0_4px_30px_rgba(0,0,0,0.5)]' : 'bg-transparent py-2'}`}>
+      <nav
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          scrolled
+            ? 'bg-background/85 backdrop-blur-xl border-b border-primary/15 shadow-[0_4px_40px_rgba(0,0,0,0.6),0_1px_0_rgba(0,212,255,0.08)]'
+            : 'bg-transparent py-1'
+        }`}
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between">
 
           {/* Logo */}
-          <a href="#hero" className="flex items-center gap-3 group" onClick={() => setMenuOpen(false)}>
-            <img
-              src={logoPath}
-              alt="Logo"
-              className="w-10 h-10 sm:w-12 sm:h-12 object-contain drop-shadow-[0_0_10px_rgba(0,212,255,0.8)] transition-transform duration-300 group-hover:scale-110"
-            />
-            <span className="font-display font-bold text-lg sm:text-xl tracking-widest text-foreground group-hover:text-primary transition-colors duration-300">
+          <a href="#hero" className="flex items-center gap-2.5 group" onClick={() => setMenuOpen(false)}>
+            <div className="relative">
+              <img
+                src={logoPath}
+                alt="Logo"
+                className="w-9 h-9 sm:w-11 sm:h-11 object-contain drop-shadow-[0_0_12px_rgba(0,212,255,0.7)] transition-all duration-300 group-hover:scale-110 group-hover:drop-shadow-[0_0_20px_rgba(0,212,255,0.9)]"
+              />
+              {/* Logo pulse ring */}
+              <div className="absolute inset-0 rounded-full border border-primary/0 group-hover:border-primary/30 group-hover:scale-125 transition-all duration-500" />
+            </div>
+            <span className="font-display font-bold text-base sm:text-lg tracking-[0.2em] text-foreground group-hover:text-primary transition-colors duration-300">
               M.S
             </span>
           </a>
 
-          {/* Desktop nav */}
-          <div className="hidden md:flex items-center gap-6 lg:gap-8 bg-card/50 backdrop-blur-lg px-5 lg:px-6 py-3 border border-border/50 rounded-full">
+          {/* Desktop nav pill */}
+          <div className="hidden md:flex items-center gap-5 lg:gap-7 bg-card/60 backdrop-blur-xl px-5 lg:px-7 py-2.5 border border-border/40 rounded-full shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]">
             {links.map(l => navLink(l))}
           </div>
 
           {/* Desktop CTA */}
-          <a href="#contact" className="hidden md:flex items-center gap-2 px-5 py-2 text-xs font-mono text-primary border border-primary/50 hover:bg-primary/10 transition-colors bg-background/50 backdrop-blur-sm">
+          <a
+            href="#contact"
+            className="hidden md:flex items-center gap-2 px-5 py-2 text-[10px] font-mono text-primary border border-primary/40 hover:bg-primary/10 hover:border-primary/70 hover:shadow-[0_0_15px_rgba(0,212,255,0.25)] transition-all duration-300 bg-background/40 backdrop-blur-sm tracking-widest uppercase"
+          >
             <span>init</span>
-            <span className="w-2 h-2 bg-primary animate-pulse" />
+            <span className="w-2 h-2 bg-primary rounded-sm animate-pulse shadow-[0_0_5px_rgba(0,212,255,0.8)]" />
           </a>
 
           {/* Mobile hamburger */}
           <button
             onClick={() => setMenuOpen(o => !o)}
-            className="md:hidden flex flex-col justify-center items-center w-10 h-10 gap-[5px] z-50"
+            className="md:hidden flex flex-col justify-center items-center w-10 h-10 gap-[5px] z-50 group"
             aria-label="Toggle menu"
           >
             <motion.span
               animate={menuOpen ? { rotate: 45, y: 7 } : { rotate: 0, y: 0 }}
-              className="block w-6 h-0.5 bg-primary origin-center"
+              className="block w-6 h-0.5 bg-primary origin-center shadow-[0_0_4px_rgba(0,212,255,0.6)]"
             />
             <motion.span
-              animate={menuOpen ? { opacity: 0 } : { opacity: 1 }}
-              className="block w-6 h-0.5 bg-primary"
+              animate={menuOpen ? { opacity: 0, scaleX: 0 } : { opacity: 1, scaleX: 1 }}
+              className="block w-4 h-0.5 bg-primary/70 self-end"
             />
             <motion.span
               animate={menuOpen ? { rotate: -45, y: -7 } : { rotate: 0, y: 0 }}
-              className="block w-6 h-0.5 bg-primary origin-center"
+              className="block w-6 h-0.5 bg-primary origin-center shadow-[0_0_4px_rgba(0,212,255,0.6)]"
             />
           </button>
         </div>
@@ -109,19 +128,36 @@ export default function Navigation() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="fixed inset-0 z-40 bg-background/95 backdrop-blur-xl flex flex-col items-center justify-center gap-8 md:hidden"
+            className="fixed inset-0 z-40 bg-background/97 backdrop-blur-2xl flex flex-col items-center justify-center gap-6 md:hidden"
           >
-            {links.map(l => (
-              <a
+            {/* Decorative grid */}
+            <div className="absolute inset-0 grid-bg opacity-40 pointer-events-none" />
+
+            {/* Top gradient */}
+            <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
+
+            {links.map((l, i) => (
+              <motion.a
                 key={l.name}
                 href={l.href}
                 onClick={() => setMenuOpen(false)}
-                className={`text-2xl font-display font-bold tracking-widest transition-colors duration-300
-                  ${active === l.name ? 'text-primary' : 'text-muted-foreground hover:text-foreground'}`}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 10 }}
+                transition={{ delay: i * 0.06 }}
+                className={`relative text-2xl font-display font-bold tracking-[0.15em] transition-all duration-300 group ${
+                  active === l.name ? 'text-primary' : 'text-muted-foreground hover:text-foreground'
+                }`}
               >
                 {l.name}
-              </a>
+                {active === l.name && (
+                  <span className="absolute -bottom-1 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-primary to-transparent shadow-[0_0_8px_rgba(0,212,255,0.8)] rounded-full" />
+                )}
+              </motion.a>
             ))}
+
+            {/* Bottom accent */}
+            <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-secondary/30 to-transparent" />
           </motion.div>
         )}
       </AnimatePresence>

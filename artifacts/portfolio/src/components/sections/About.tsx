@@ -41,7 +41,7 @@ export default function About() {
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
-          className="relative bg-card/40 backdrop-blur-xl border border-primary/30 neon-box-strong group hover:border-primary/55 transition-all duration-500"
+          className="relative bg-card/40 backdrop-blur-xl border border-primary/30 rounded-lg neon-box-strong group hover:border-primary/55 transition-all duration-500"
         >
           {/* Terminal chrome bar */}
           <div className="terminal-chrome">
@@ -93,7 +93,7 @@ export default function About() {
               </p>
 
               {/* Quote */}
-              <div className="relative pl-5 py-3 border-l-2 border-secondary bg-secondary/5 pr-4">
+              <div className="relative pl-5 py-3 border-l-2 border-secondary bg-secondary/5 pr-4 rounded-r">
                 <div className="absolute -left-[5px] top-2 w-2 h-2 rounded-full bg-secondary shadow-[0_0_8px_rgba(139,92,246,0.8)]" />
                 <p className="text-muted-foreground italic text-sm sm:text-base">
                   "Code is just the tool. The goal is to build the future."

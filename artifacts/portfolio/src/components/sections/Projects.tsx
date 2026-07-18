@@ -66,7 +66,7 @@ function ProjectCard({ project }: { project: typeof projects[0] }) {
       className="relative w-full aspect-[4/3] cursor-crosshair group z-10"
     >
       <div
-        className={`absolute inset-0 bg-card/60 backdrop-blur-md border border-border/40 overflow-hidden transition-all duration-500 group-hover:${c.border} ${c.topClass} relative`}
+        className={`absolute inset-0 bg-card/60 backdrop-blur-md border border-border/40 rounded-lg overflow-hidden transition-all duration-500 group-hover:${c.border} ${c.topClass} relative`}
         style={{ transform: "translateZ(0px)" }}
       >
         {/* Hover radial glow */}
@@ -107,7 +107,7 @@ function ProjectCard({ project }: { project: typeof projects[0] }) {
               {project.tags.map(tag => (
                 <span
                   key={tag}
-                  className={`font-mono text-[9px] px-2.5 py-1 border tracking-widest uppercase transition-all duration-300 cursor-default ${c.tagClass}`}
+                  className={`font-mono text-[9px] px-2.5 py-1 border rounded tracking-widest uppercase transition-all duration-300 cursor-default ${c.tagClass}`}
                 >
                   {tag}
                 </span>

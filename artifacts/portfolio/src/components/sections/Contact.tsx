@@ -54,12 +54,12 @@ export default function Contact() {
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
-          className="bg-card/80 backdrop-blur-xl border border-primary/30 p-1 relative"
+          className="bg-card/80 backdrop-blur-xl border border-primary/30 rounded-lg p-1 relative"
         >
-          <div className="bg-background border border-border p-6 md:p-10 relative overflow-hidden">
+          <div className="bg-background border border-border rounded-lg p-6 md:p-10 relative overflow-hidden">
             <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary via-secondary to-accent opacity-80" />
             
-            <div className="mb-10 font-mono text-sm md:text-base text-muted-foreground flex items-center gap-3 bg-card p-4 border border-border/50">
+            <div className="mb-10 font-mono text-sm md:text-base text-muted-foreground flex items-center gap-3 bg-card p-4 border border-border/50 rounded-lg">
               <span className="text-primary animate-pulse">root@manish-sys:~#</span>
               <span className="text-white">./init_contact.sh</span>
             </div>
@@ -72,7 +72,7 @@ export default function Contact() {
                     <span className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground font-mono">&gt;</span>
                     <input 
                       {...form.register("name")}
-                      className="w-full bg-background border border-border focus:border-primary/60 p-4 pl-8 font-mono text-foreground placeholder:text-muted-foreground/30 transition-all outline-none"
+                      className="w-full bg-background border border-border rounded focus:border-primary/60 p-4 pl-8 font-mono text-foreground placeholder:text-muted-foreground/30 transition-all outline-none"
                       placeholder="Enter your name"
                     />
                   </div>
@@ -84,7 +84,7 @@ export default function Contact() {
                     <span className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground font-mono">&gt;</span>
                     <input 
                       {...form.register("email")}
-                      className="w-full bg-background border border-border focus:border-secondary/60 p-4 pl-8 font-mono text-foreground placeholder:text-muted-foreground/30 transition-all outline-none"
+                      className="w-full bg-background border border-border rounded focus:border-secondary/60 p-4 pl-8 font-mono text-foreground placeholder:text-muted-foreground/30 transition-all outline-none"
                       placeholder="Enter your email"
                     />
                   </div>
@@ -99,7 +99,7 @@ export default function Contact() {
                   <textarea 
                     {...form.register("message")}
                     rows={6}
-                    className="w-full bg-background border border-border focus:border-accent/60 p-4 pl-8 font-mono text-foreground placeholder:text-muted-foreground/30 transition-all outline-none resize-none"
+                    className="w-full bg-background border border-border rounded focus:border-accent/60 p-4 pl-8 font-mono text-foreground placeholder:text-muted-foreground/30 transition-all outline-none resize-none"
                     placeholder="Enter message body..."
                   />
                 </div>
@@ -107,13 +107,13 @@ export default function Contact() {
               </div>
 
               <div className="pt-6 flex flex-col md:flex-row items-center justify-between gap-6">
-                <a href="mailto:manishkumar37414@gmail.com" className="font-mono text-sm text-muted-foreground hover:text-white transition-colors flex items-center gap-2 px-4 py-2 border border-transparent hover:border-border/50 bg-card/50">
+                <a href="mailto:manishkumar37414@gmail.com" className="font-mono text-sm text-muted-foreground hover:text-white transition-colors flex items-center gap-2 px-4 py-2 border border-transparent hover:border-border/50 bg-card/50 rounded">
                   <span className="text-secondary">&gt;</span> direct_mail protocol
                 </a>
                 
                 <button 
                   type="submit"
-                  className="w-full md:w-auto group relative inline-flex items-center justify-center px-10 py-4 font-display font-bold text-background bg-primary hover:bg-white transition-all duration-300 uppercase tracking-widest overflow-hidden"
+                  className="w-full md:w-auto group relative inline-flex items-center justify-center px-10 py-4 font-display font-bold text-background bg-primary hover:bg-white rounded transition-all duration-300 uppercase tracking-widest overflow-hidden"
                 >
                   <span className="absolute inset-0 w-full h-full -ml-full group-hover:ml-0 transition-all duration-500 ease-out bg-white/20"></span>
                   <span className="flex items-center gap-3 relative z-10 group-hover:text-black transition-colors">

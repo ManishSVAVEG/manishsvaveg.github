@@ -99,7 +99,7 @@ export default function Skills() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.2 }}
-                className={`bg-card/40 backdrop-blur-xl border border-border/60 relative overflow-hidden group transition-all duration-500 hover:${styles.border}`}
+                className={`bg-card/40 backdrop-blur-xl border border-border/60 rounded-lg relative overflow-hidden group transition-all duration-500 hover:${styles.border}`}
               >
                 {/* Colored left accent bar */}
                 <div className={`absolute left-0 top-0 bottom-0 w-[2px] ${styles.leftBar} opacity-50 group-hover:opacity-100 transition-opacity duration-500`} />
@@ -111,7 +111,7 @@ export default function Skills() {
                 <div className="p-6 sm:p-8">
                   {/* Header */}
                   <div className="flex items-center gap-4 mb-8 relative z-10">
-                    <div className={`p-3.5 bg-background border transition-all duration-500 ${styles.iconBox}`}>
+                    <div className={`p-3.5 bg-background border rounded-lg transition-all duration-500 ${styles.iconBox}`}>
                       {category.icon}
                     </div>
                     <div>
@@ -131,7 +131,7 @@ export default function Skills() {
                         whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
                         transition={{ delay: (idx * 0.2) + (i * 0.05) }}
-                        className={`font-mono text-xs px-3 py-1.5 border transition-all duration-300 cursor-default tracking-wide ${category.tagClass}`}
+                        className={`font-mono text-xs px-3 py-1.5 border rounded transition-all duration-300 cursor-default tracking-wide ${category.tagClass}`}
                       >
                         {skill}
                       </motion.span>

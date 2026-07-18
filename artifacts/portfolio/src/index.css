@@ -292,13 +292,6 @@
   box-shadow: 0 0 12px rgba(139,92,246,0.12);
   animation: planet-spin 90s linear infinite;
 }
-.planet-b {
-  width: 44px; height: 44px;
-  bottom: 18%; left: 6%;
-  background: radial-gradient(circle at 40% 30%, #c0392b 0%, #7b241c 60%, #3d0f0f 100%);
-  box-shadow: none;
-  animation: planet-spin 60s linear infinite reverse;
-}
 .planet-ring {
   position: absolute;
   width: 180px; height: 36px;

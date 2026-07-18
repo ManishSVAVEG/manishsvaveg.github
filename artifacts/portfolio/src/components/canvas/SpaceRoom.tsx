@@ -39,7 +39,6 @@ export default function SpaceRoom() {
 
       {/* ── Distant planets ── */}
       <div className="planet planet-a" />   {/* large blue-purple gas giant */}
-      <div className="planet planet-b" />   {/* small red-orange rocky */}
       <div className="planet-ring" />       {/* saturn-style ring around planet-a */}
 
       {/* ── Shooting stars ── */}

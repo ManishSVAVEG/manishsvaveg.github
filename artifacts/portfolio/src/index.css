@@ -164,10 +164,10 @@
 
   /* ── Neon glow helpers ── */
   .neon-text-primary {
-    text-shadow: 0 0 6px rgba(0,212,255,0.5), 0 0 14px rgba(0,212,255,0.2);
+    text-shadow: none;
   }
   .neon-box {
-    box-shadow: 0 0 8px rgba(0,212,255,0.12), inset 0 0 8px rgba(0,212,255,0.03);
+    box-shadow: none;
   }
 
   /* ── Scanlines ── */
@@ -278,10 +278,10 @@
   filter: blur(80px);
   mix-blend-mode: screen;
 }
-.neb-1 { width: 500px; height: 300px; top: 5%;  left: 20%; background: rgba(0,212,255,0.06);  animation: neb-drift 30s ease-in-out infinite; }
-.neb-2 { width: 400px; height: 250px; top: 60%; right: 10%; background: rgba(139,92,246,0.07); animation: neb-drift 40s ease-in-out infinite reverse; }
-.neb-3 { width: 350px; height: 200px; top: 30%; left: 5%;  background: rgba(255,0,110,0.05);  animation: neb-drift 50s ease-in-out infinite 15s; }
-.neb-4 { width: 600px; height: 350px; bottom: 5%; right: 20%; background: rgba(0,212,255,0.04); animation: neb-drift 35s ease-in-out infinite 10s reverse; }
+.neb-1 { width: 500px; height: 300px; top: 5%;  left: 20%; background: rgba(0,212,255,0.025);  animation: neb-drift 30s ease-in-out infinite; }
+.neb-2 { width: 400px; height: 250px; top: 60%; right: 10%; background: rgba(139,92,246,0.028); animation: neb-drift 40s ease-in-out infinite reverse; }
+.neb-3 { width: 350px; height: 200px; top: 30%; left: 5%;  background: rgba(255,0,110,0.018);  animation: neb-drift 50s ease-in-out infinite 15s; }
+.neb-4 { width: 600px; height: 350px; bottom: 5%; right: 20%; background: rgba(0,212,255,0.015); animation: neb-drift 35s ease-in-out infinite 10s reverse; }
 
 /* Planets */
 .planet { position: absolute; border-radius: 50%; }
@@ -289,14 +289,14 @@
   width: 120px; height: 120px;
   top: 12%; right: 8%;
   background: radial-gradient(circle at 35% 35%, rgba(139,92,246,0.9) 0%, rgba(0,20,60,0.95) 60%, rgba(0,5,20,0.99) 100%);
-  box-shadow: 0 0 30px rgba(139,92,246,0.3), 0 0 60px rgba(0,212,255,0.1);
+  box-shadow: 0 0 12px rgba(139,92,246,0.12);
   animation: planet-spin 90s linear infinite;
 }
 .planet-b {
   width: 44px; height: 44px;
   bottom: 18%; left: 6%;
   background: radial-gradient(circle at 40% 30%, #c0392b 0%, #7b241c 60%, #3d0f0f 100%);
-  box-shadow: 0 0 15px rgba(192,57,43,0.3);
+  box-shadow: none;
   animation: planet-spin 60s linear infinite reverse;
 }
 .planet-ring {
@@ -304,8 +304,8 @@
   width: 180px; height: 36px;
   top: calc(12% + 42px); right: calc(8% - 30px);
   border-radius: 50%;
-  border: 2px solid rgba(139,92,246,0.3);
-  box-shadow: 0 0 10px rgba(139,92,246,0.15);
+  border: 2px solid rgba(139,92,246,0.2);
+  box-shadow: none;
   transform: rotateX(70deg);
   animation: planet-spin 90s linear infinite;
 }
@@ -330,8 +330,8 @@
   border-left: calc(var(--sz, 40px) / 2) solid transparent;
   border-right: calc(var(--sz, 40px) / 2) solid transparent;
   border-bottom: calc(var(--sz, 40px) * 0.866) solid var(--dc, #00D4FF);
-  opacity: 0.25;
-  filter: drop-shadow(0 0 6px var(--dc, #00D4FF));
+  opacity: 0.15;
+  filter: none;
   animation: debris-orbit var(--dur, 20s) ease-in-out infinite var(--delay, 0s),
              debris-rotate var(--rdur, 12s) linear infinite;
 }
@@ -339,26 +339,25 @@
   border-radius: 50%;
   border: 2px solid var(--dc, #8B5CF6);
   background: transparent !important;
-  opacity: 0.3;
-  box-shadow: 0 0 8px var(--dc, #8B5CF6), inset 0 0 8px rgba(0,0,0,0.3);
+  opacity: 0.15;
+  box-shadow: none;
   animation: debris-orbit var(--dur, 20s) ease-in-out infinite var(--delay, 0s),
              debris-rotate var(--rdur, 12s) linear infinite;
 }
 .debris-hex {
   background: transparent !important;
-  opacity: 0.2;
   clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
   background-color: var(--dc, #FF006E) !important;
-  opacity: 0.25;
-  box-shadow: 0 0 10px var(--dc, #FF006E);
+  opacity: 0.12;
+  box-shadow: none;
   animation: debris-orbit var(--dur, 20s) ease-in-out infinite var(--delay, 0s),
              debris-rotate var(--rdur, 12s) linear infinite;
 }
 .debris-cube {
   background: transparent !important;
   border: 2px solid var(--dc, #00D4FF);
-  opacity: 0.2;
-  box-shadow: 0 0 8px var(--dc, #00D4FF);
+  opacity: 0.12;
+  box-shadow: none;
   animation: debris-orbit var(--dur, 20s) ease-in-out infinite var(--delay, 0s),
              debris-rotate var(--rdur, 12s) linear infinite;
 }
@@ -609,9 +608,9 @@
   border-radius: 50%;
   flex-shrink: 0;
 }
-.td-red    { background: #FF5F56; box-shadow: 0 0 4px #FF5F5688; }
-.td-yellow { background: #FFBD2E; box-shadow: 0 0 4px #FFBD2E88; }
-.td-green  { background: #27C93F; box-shadow: 0 0 4px #27C93F88; }
+.td-red    { background: #FF5F56; }
+.td-yellow { background: #FFBD2E; }
+.td-green  { background: #27C93F; }
 
 /* ── Card top accent lines ── */
 .card-top-primary::before,
@@ -668,7 +667,7 @@
   border-color: rgba(0,212,255,0.6);
   color: #00D4FF;
   background: rgba(0,212,255,0.10);
-  box-shadow: 0 0 6px rgba(0,212,255,0.12);
+  box-shadow: none;
 }
 .skill-tag-secondary {
   border-color: rgba(139,92,246,0.2);
@@ -679,7 +678,7 @@
   border-color: rgba(139,92,246,0.6);
   color: #8B5CF6;
   background: rgba(139,92,246,0.10);
-  box-shadow: 0 0 6px rgba(139,92,246,0.12);
+  box-shadow: none;
 }
 .skill-tag-accent {
   border-color: rgba(255,0,110,0.2);
@@ -690,15 +689,12 @@
   border-color: rgba(255,0,110,0.6);
   color: #FF006E;
   background: rgba(255,0,110,0.10);
-  box-shadow: 0 0 6px rgba(255,0,110,0.12);
+  box-shadow: none;
 }
 
 /* ── Enhanced neon box ── */
 .neon-box-strong {
-  box-shadow:
-    0 0 10px rgba(0,212,255,0.07),
-    0 0 30px rgba(0,212,255,0.02),
-    inset 0 0 10px rgba(0,212,255,0.015);
+  box-shadow: none;
 }
 
 /* ── Hover lift ── */
@@ -715,8 +711,8 @@
 
 /* ── Pulse glow ── */
 @keyframes pulse-glow-primary {
-  0%, 100% { box-shadow: 0 0 8px rgba(0,212,255,0.3); }
-  50%       { box-shadow: 0 0 20px rgba(0,212,255,0.7), 0 0 40px rgba(0,212,255,0.2); }
+  0%, 100% { box-shadow: none; }
+  50%       { box-shadow: none; }
 }
 
 /* ── Mobile CTA full-width ── */

@@ -92,7 +92,7 @@ export default function Navigation() {
           {/* Desktop CTA */}
           <a
             href="#contact"
-            className="hidden md:flex items-center gap-2 px-5 py-2 text-[10px] font-mono text-primary border border-primary/40 hover:bg-primary/10 hover:border-primary/70 hover:shadow-[0_0_15px_rgba(0,212,255,0.25)] transition-all duration-300 bg-background/40 backdrop-blur-sm tracking-widest uppercase"
+            className="hidden md:flex items-center gap-2 px-5 py-2 text-[10px] font-mono text-primary border border-primary/40 hover:bg-primary/10 hover:border-primary/60 transition-all duration-300 bg-background/40 backdrop-blur-sm tracking-widest uppercase"
           >
             <span>init</span>
             <span className="w-2 h-2 bg-primary rounded-sm animate-pulse shadow-[0_0_5px_rgba(0,212,255,0.8)]" />

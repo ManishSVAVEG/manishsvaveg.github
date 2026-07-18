@@ -31,23 +31,23 @@ const skillCategories = [
 const getColorStyles = (type: string) => {
   if (type === 'primary') return {
     border: 'border-primary',
-    glow: 'shadow-[0_0_20px_rgba(0,212,255,0.25)]',
-    blob: 'bg-primary/15 group-hover:bg-primary/35',
-    iconBox: 'border-primary/40 bg-primary/8 group-hover:shadow-[0_0_15px_rgba(0,212,255,0.4)]',
+    glow: '',
+    blob: 'bg-primary/10 group-hover:bg-primary/20',
+    iconBox: 'border-primary/30 bg-primary/5',
     leftBar: 'bg-gradient-to-b from-primary to-transparent',
   };
   if (type === 'secondary') return {
     border: 'border-secondary',
-    glow: 'shadow-[0_0_20px_rgba(139,92,246,0.25)]',
-    blob: 'bg-secondary/15 group-hover:bg-secondary/35',
-    iconBox: 'border-secondary/40 bg-secondary/8 group-hover:shadow-[0_0_15px_rgba(139,92,246,0.4)]',
+    glow: '',
+    blob: 'bg-secondary/10 group-hover:bg-secondary/20',
+    iconBox: 'border-secondary/30 bg-secondary/5',
     leftBar: 'bg-gradient-to-b from-secondary to-transparent',
   };
   return {
     border: 'border-accent',
-    glow: 'shadow-[0_0_20px_rgba(255,0,110,0.25)]',
-    blob: 'bg-accent/15 group-hover:bg-accent/35',
-    iconBox: 'border-accent/40 bg-accent/8 group-hover:shadow-[0_0_15px_rgba(255,0,110,0.4)]',
+    glow: '',
+    blob: 'bg-accent/10 group-hover:bg-accent/20',
+    iconBox: 'border-accent/30 bg-accent/5',
     leftBar: 'bg-gradient-to-b from-accent to-transparent',
   };
 };
@@ -99,7 +99,7 @@ export default function Skills() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.2 }}
-                className={`bg-card/40 backdrop-blur-xl border border-border/60 relative overflow-hidden group transition-all duration-500 hover:${styles.border} hover:${styles.glow}`}
+                className={`bg-card/40 backdrop-blur-xl border border-border/60 relative overflow-hidden group transition-all duration-500 hover:${styles.border}`}
               >
                 {/* Colored left accent bar */}
                 <div className={`absolute left-0 top-0 bottom-0 w-[2px] ${styles.leftBar} opacity-50 group-hover:opacity-100 transition-opacity duration-500`} />

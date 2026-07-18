@@ -33,9 +33,9 @@ const projects = [
 ];
 
 const colorMap = {
-  primary:   { hex: '#00D4FF', border: 'border-primary',   text: 'text-primary',   glow: 'rgba(0,212,255,0.35)',   tagClass: 'skill-tag-primary',   topClass: 'card-top-primary' },
-  secondary: { hex: '#8B5CF6', border: 'border-secondary', text: 'text-secondary', glow: 'rgba(139,92,246,0.35)', tagClass: 'skill-tag-secondary', topClass: 'card-top-secondary' },
-  accent:    { hex: '#FF006E', border: 'border-accent',    text: 'text-accent',    glow: 'rgba(255,0,110,0.35)',   tagClass: 'skill-tag-accent',    topClass: 'card-top-accent' },
+  primary:   { hex: '#00D4FF', border: 'border-primary',   text: 'text-primary',   glow: 'rgba(0,0,0,0)',   tagClass: 'skill-tag-primary',   topClass: 'card-top-primary' },
+  secondary: { hex: '#8B5CF6', border: 'border-secondary', text: 'text-secondary', glow: 'rgba(0,0,0,0)', tagClass: 'skill-tag-secondary', topClass: 'card-top-secondary' },
+  accent:    { hex: '#FF006E', border: 'border-accent',    text: 'text-accent',    glow: 'rgba(0,0,0,0)',   tagClass: 'skill-tag-accent',    topClass: 'card-top-accent' },
 } as const;
 
 function ProjectCard({ project }: { project: typeof projects[0] }) {
@@ -66,7 +66,7 @@ function ProjectCard({ project }: { project: typeof projects[0] }) {
       className="relative w-full aspect-[4/3] cursor-crosshair group z-10"
     >
       <div
-        className={`absolute inset-0 bg-card/60 backdrop-blur-md border border-border/40 overflow-hidden transition-all duration-500 group-hover:${c.border} group-hover:shadow-[0_0_40px_${c.glow}] ${c.topClass} relative`}
+        className={`absolute inset-0 bg-card/60 backdrop-blur-md border border-border/40 overflow-hidden transition-all duration-500 group-hover:${c.border} ${c.topClass} relative`}
         style={{ transform: "translateZ(0px)" }}
       >
         {/* Hover radial glow */}

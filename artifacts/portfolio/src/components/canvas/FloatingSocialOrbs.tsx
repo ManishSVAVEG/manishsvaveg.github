@@ -135,11 +135,9 @@ export default function FloatingSocialOrbs() {
                 `,
                 border: `1.5px solid ${orb.color}`,
                 boxShadow: `
-                  0 0 ${orb.glowBlur}px      ${orb.color}88,
-                  0 0 ${orb.glowBlur * 2}px  ${orb.color}33,
-                  0 6px 20px rgba(0,0,0,0.6),
+                  0 4px 16px rgba(0,0,0,0.5),
                   inset 0 -4px 12px rgba(0,0,0,0.5),
-                  inset 0 3px 8px rgba(255,255,255,0.12)
+                  inset 0 3px 8px rgba(255,255,255,0.10)
                 `,
                 transition: 'transform 0.25s ease, box-shadow 0.25s ease',
               }}
@@ -147,22 +145,18 @@ export default function FloatingSocialOrbs() {
                 const el = e.currentTarget as HTMLElement;
                 el.style.transform = 'scale(1.3) translateY(-4px)';
                 el.style.boxShadow = `
-                  0 0 ${orb.glowBlur * 1.5}px ${orb.color}cc,
-                  0 0 ${orb.glowBlur * 3}px   ${orb.color}55,
-                  0 12px 30px rgba(0,0,0,0.7),
+                  0 8px 24px rgba(0,0,0,0.6),
                   inset 0 -4px 12px rgba(0,0,0,0.5),
-                  inset 0 3px 8px rgba(255,255,255,0.18)
+                  inset 0 3px 8px rgba(255,255,255,0.16)
                 `;
               }}
               onMouseLeave={e => {
                 const el = e.currentTarget as HTMLElement;
                 el.style.transform = '';
                 el.style.boxShadow = `
-                  0 0 ${orb.glowBlur}px      ${orb.color}88,
-                  0 0 ${orb.glowBlur * 2}px  ${orb.color}33,
-                  0 6px 20px rgba(0,0,0,0.6),
+                  0 4px 16px rgba(0,0,0,0.5),
                   inset 0 -4px 12px rgba(0,0,0,0.5),
-                  inset 0 3px 8px rgba(255,255,255,0.12)
+                  inset 0 3px 8px rgba(255,255,255,0.10)
                 `;
               }}
             >
@@ -170,7 +164,7 @@ export default function FloatingSocialOrbs() {
               <orb.Icon
                 size={orb.size * 0.44}
                 color="#ffffff"
-                style={{ filter: `drop-shadow(0 0 6px ${orb.color})`, flexShrink: 0 }}
+                style={{ flexShrink: 0 }}
               />
 
               {/* Orbit ring */}

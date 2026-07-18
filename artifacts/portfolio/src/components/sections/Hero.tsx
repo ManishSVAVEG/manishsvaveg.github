@@ -66,15 +66,9 @@ export default function Hero() {
             transition={{ delay: 0.3, duration: 0.8 }}
           >
             <h1 className="text-5xl sm:text-7xl md:text-8xl font-black font-display tracking-tighter leading-none">
-              <span
-                className="glitch text-white drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]"
-                data-text="MANISH"
-              >MANISH</span>
+              <span className="glitch text-white" data-text="MANISH">MANISH</span>
               <br />
-              <span
-                className="glitch glitch-gradient drop-shadow-[0_2px_30px_rgba(0,212,255,0.35)]"
-                data-text="SVAVEG"
-              >SVAVEG</span>
+              <span className="glitch glitch-gradient" data-text="SVAVEG">SVAVEG</span>
             </h1>
           </motion.div>
 
@@ -128,7 +122,7 @@ export default function Hero() {
           >
             <a
               href="#projects"
-              className="btn-shimmer cta-full-mobile group relative inline-flex items-center justify-center px-7 py-3 font-display font-bold text-sm text-primary border border-primary bg-primary/10 hover:bg-primary/20 transition-all duration-300 uppercase tracking-widest neon-box hover:shadow-[0_0_30px_rgba(0,212,255,0.4)]"
+              className="btn-shimmer cta-full-mobile group relative inline-flex items-center justify-center px-7 py-3 font-display font-bold text-sm text-primary border border-primary/60 bg-primary/8 hover:bg-primary/15 transition-all duration-300 uppercase tracking-widest"
             >
               <span className="relative flex items-center gap-2">
                 View Projects
@@ -137,7 +131,7 @@ export default function Hero() {
             </a>
             <a
               href="#game"
-              className="btn-shimmer cta-full-mobile inline-flex items-center justify-center px-7 py-3 font-display font-bold text-sm text-secondary border border-secondary bg-secondary/10 hover:bg-secondary/20 transition-all duration-300 uppercase tracking-widest shadow-[0_0_15px_rgba(139,92,246,0.15)] hover:shadow-[0_0_30px_rgba(139,92,246,0.45)]"
+              className="btn-shimmer cta-full-mobile inline-flex items-center justify-center px-7 py-3 font-display font-bold text-sm text-secondary border border-secondary/60 bg-secondary/8 hover:bg-secondary/15 transition-all duration-300 uppercase tracking-widest"
             >
               Play Game
             </a>

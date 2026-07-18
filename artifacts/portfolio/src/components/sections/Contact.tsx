@@ -54,7 +54,7 @@ export default function Contact() {
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
-          className="bg-card/80 backdrop-blur-xl border border-primary/40 p-1 shadow-[0_0_30px_rgba(0,212,255,0.1)] relative"
+          className="bg-card/80 backdrop-blur-xl border border-primary/30 p-1 relative"
         >
           <div className="bg-background border border-border p-6 md:p-10 relative overflow-hidden">
             <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary via-secondary to-accent opacity-80" />
@@ -72,7 +72,7 @@ export default function Contact() {
                     <span className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground font-mono">&gt;</span>
                     <input 
                       {...form.register("name")}
-                      className="w-full bg-background border border-border focus:border-primary focus:shadow-[0_0_10px_rgba(0,212,255,0.2)] p-4 pl-8 font-mono text-foreground placeholder:text-muted-foreground/30 transition-all outline-none"
+                      className="w-full bg-background border border-border focus:border-primary/60 p-4 pl-8 font-mono text-foreground placeholder:text-muted-foreground/30 transition-all outline-none"
                       placeholder="Enter your name"
                     />
                   </div>
@@ -84,7 +84,7 @@ export default function Contact() {
                     <span className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground font-mono">&gt;</span>
                     <input 
                       {...form.register("email")}
-                      className="w-full bg-background border border-border focus:border-secondary focus:shadow-[0_0_10px_rgba(139,92,246,0.2)] p-4 pl-8 font-mono text-foreground placeholder:text-muted-foreground/30 transition-all outline-none"
+                      className="w-full bg-background border border-border focus:border-secondary/60 p-4 pl-8 font-mono text-foreground placeholder:text-muted-foreground/30 transition-all outline-none"
                       placeholder="Enter your email"
                     />
                   </div>
@@ -99,7 +99,7 @@ export default function Contact() {
                   <textarea 
                     {...form.register("message")}
                     rows={6}
-                    className="w-full bg-background border border-border focus:border-accent focus:shadow-[0_0_10px_rgba(255,0,110,0.2)] p-4 pl-8 font-mono text-foreground placeholder:text-muted-foreground/30 transition-all outline-none resize-none"
+                    className="w-full bg-background border border-border focus:border-accent/60 p-4 pl-8 font-mono text-foreground placeholder:text-muted-foreground/30 transition-all outline-none resize-none"
                     placeholder="Enter message body..."
                   />
                 </div>
@@ -113,7 +113,7 @@ export default function Contact() {
                 
                 <button 
                   type="submit"
-                  className="w-full md:w-auto group relative inline-flex items-center justify-center px-10 py-4 font-display font-bold text-background bg-primary hover:bg-white transition-all duration-300 uppercase tracking-widest overflow-hidden neon-box shadow-[0_0_15px_rgba(0,212,255,0.6)]"
+                  className="w-full md:w-auto group relative inline-flex items-center justify-center px-10 py-4 font-display font-bold text-background bg-primary hover:bg-white transition-all duration-300 uppercase tracking-widest overflow-hidden"
                 >
                   <span className="absolute inset-0 w-full h-full -ml-full group-hover:ml-0 transition-all duration-500 ease-out bg-white/20"></span>
                   <span className="flex items-center gap-3 relative z-10 group-hover:text-black transition-colors">

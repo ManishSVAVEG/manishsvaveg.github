@@ -1,0 +1,58 @@
+The Netlify deploy errored, with the following guidance provided:
+
+The build is failing at the repository preparation stage.
+
+**Diagnosis:**
+
+[Line 8](#L8) shows that Git is attempting to check out a submodule at path `Scroll-Stopper`, but there is no corresponding URL defined for it in the `.gitmodules` file. This means the submodule reference exists in the repo's Git history/index, but the `.gitmodules` file is either missing or incomplete.
+
+**Solution:**
+
+You have two options depending on whether `Scroll-Stopper` is intended to be a submodule:
+
+**Option 1: Remove the broken submodule (if you don't need it as a submodule)**
+
+Run the following commands locally to clean up the broken submodule reference:
+
+```bash
+git rm --cached Scroll-Stopper
+git rm .gitmodules   # if the file is otherwise empty
+git commit -m "Remove broken Scroll-Stopper submodule"
+git push
+```
+
+**Option 2: Fix the submodule configuration (if you do need it as a submodule)**
+
+Ensure your `.gitmodules` file contains a proper entry like:
+
+```ini
+[submodule "Scroll-Stopper"]
+    path = Scroll-Stopper
+    url = https://github.com/<owner>/<repo>.git
+```
+
+Then run:
+
+```bash
+git submodule sync
+git add .gitmodules
+git commit -m "Fix Scroll-Stopper submodule URL"
+git push
+```
+
+Also note that [line 7](#L7) mentions the repository itself may not be accessible. Verify that the GitHub repository `ManishSVAVEG/manishsvaveg.github` is public and that the branch `main` exists.
+
+The relevant error logs are:
+
+Line 0: build-image version: 969defd95f3977f8de9cb1f48802a7e6f3d8c0b3 (noble-new-builds)
+Line 1: buildbot version: b34371363d3ca30c2d1b8c0c23cb261247d6f156
+Line 2: Building without cache
+Line 3: Starting to prepare the repo for build
+Line 4: No cached dependencies found. Cloning fresh repo
+Line 5: git clone --filter=blob:none https://github.com/ManishSVAVEG/manishsvaveg.github
+Line 6: Preparing Git Reference refs/heads/main
+Line 7: Failed during stage 'preparing repo': Unable to access repository. The repository may have been deleted, the branch may not exis
+Line 8: Error checking out submodules: fatal: No url found for submodule path 'Scroll-Stopper' in .gitmodules
+: exit status 128
+Line 9: Failing build: Failed to prepare repo
+Line 10: Finished processing build request in 9.625s

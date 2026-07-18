@@ -1,0 +1,88 @@
+##[debug]Evaluating condition for step: 'Checkout'
+##[debug]Evaluating: success()
+##[debug]Evaluating success:
+##[debug]=> true
+##[debug]Result: true
+##[debug]Starting: Checkout
+##[debug]Register post job cleanup for action: actions/checkout@v4
+##[debug]Loading inputs
+##[debug]Evaluating: github.repository
+##[debug]Evaluating Index:
+##[debug]..Evaluating github:
+##[debug]..=> Object
+##[debug]..Evaluating String:
+##[debug]..=> 'repository'
+##[debug]=> 'ManishSVAVEG/manishsvaveg.github'
+##[debug]Result: 'ManishSVAVEG/manishsvaveg.github'
+##[debug]Evaluating: github.token
+##[debug]Evaluating Index:
+##[debug]..Evaluating github:
+##[debug]..=> Object
+##[debug]..Evaluating String:
+##[debug]..=> 'token'
+##[debug]=> '***'
+##[debug]Result: '***'
+##[debug]Loading env
+Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+Run actions/checkout@v4
+##[debug]GITHUB_WORKSPACE = '/home/runner/work/manishsvaveg.github/manishsvaveg.github'
+##[debug]qualified repository = 'ManishSVAVEG/manishsvaveg.github'
+##[debug]ref = 'main'
+##[debug]commit = 'undefined'
+##[debug]clean = true
+##[debug]filter = undefined
+##[debug]fetch depth = 1
+##[debug]fetch tags = false
+##[debug]show progress = true
+##[debug]lfs = false
+##[debug]submodules = true
+##[debug]recursive submodules = true
+##[debug]GitHub Host URL = 
+::add-matcher::/home/runner/work/_actions/actions/checkout/v4/dist/problem-matcher.json
+##[debug]Added matchers: 'checkout-git'. Problem matchers scan action output for known warning or error strings and report these inline.
+Syncing repository: ManishSVAVEG/manishsvaveg.github
+::group::Getting Git version info
+Getting Git version info
+::add-mask::***
+Temporarily overriding HOME='/home/runner/work/_temp/bfd2a1e2-b29f-40d4-9308-d714ace9c46c' before making global git config changes
+Adding repository directory to the temporary git global config as a safe directory
+/usr/bin/git config --global --add safe.directory /home/runner/work/manishsvaveg.github/manishsvaveg.github
+##[debug]0
+##[debug]
+Deleting the contents of '/home/runner/work/manishsvaveg.github/manishsvaveg.github'
+::group::Initializing the repository
+Initializing the repository
+::group::Disabling automatic garbage collection
+Disabling automatic garbage collection
+::group::Setting up auth
+Setting up auth
+::group::Fetching the repository
+Fetching the repository
+::group::Determining the checkout info
+Determining the checkout info
+/usr/bin/git sparse-checkout disable
+##[debug]0
+##[debug]
+/usr/bin/git config --local --unset-all extensions.worktreeConfig
+##[debug]0
+##[debug]
+::group::Checking out the ref
+Checking out the ref
+::group::Setting up auth for fetching submodules
+Setting up auth for fetching submodules
+::group::Fetching submodules
+Fetching submodules
+  /usr/bin/git submodule sync --recursive
+  ##[debug]0
+  ##[debug]
+  /usr/bin/git -c protocol.version=2 submodule update --init --force --depth=1 --recursive
+  Error: fatal: No url found for submodule path 'Scroll-Stopper' in .gitmodules
+  ##[debug]Unsetting HOME override
+  ::remove-matcher owner=checkout-git::
+  ##[debug]Removed matchers: 'checkout-git'
+  Error: The process '/usr/bin/git' failed with exit code 128
+  ##[debug]Node Action run completed with exit code 1
+  ##[debug]Save intra-action state isPost = true
+  ##[debug]Save intra-action state setSafeDirectory = true
+  ##[debug]Save intra-action state repositoryPath = /home/runner/work/manishsvaveg.github/manishsvaveg.github
+  ##[debug]Finishing: Checkout

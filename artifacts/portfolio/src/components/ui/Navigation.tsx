@@ -70,15 +70,13 @@ export default function Navigation() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between">
 
           {/* Logo */}
-          <a href="#hero" className="flex items-center gap-2.5 group" onClick={() => setMenuOpen(false)}>
-            <div className="relative">
+          <a href="#hero" className="flex items-center gap-3 group" onClick={() => setMenuOpen(false)}>
+            <div className="relative w-12 h-12 sm:w-14 sm:h-14 border border-primary/40 bg-card/80 flex items-center justify-center flex-shrink-0 transition-all duration-300 group-hover:border-primary/70 group-hover:bg-primary/10">
               <img
                 src={logoPath}
                 alt="Logo"
-                className="w-9 h-9 sm:w-11 sm:h-11 object-contain drop-shadow-[0_0_12px_rgba(0,212,255,0.7)] transition-all duration-300 group-hover:scale-110 group-hover:drop-shadow-[0_0_20px_rgba(0,212,255,0.9)]"
+                className="w-9 h-9 sm:w-10 sm:h-10 object-contain transition-all duration-300 group-hover:scale-105"
               />
-              {/* Logo pulse ring */}
-              <div className="absolute inset-0 rounded-full border border-primary/0 group-hover:border-primary/30 group-hover:scale-125 transition-all duration-500" />
             </div>
             <span className="font-display font-bold text-base sm:text-lg tracking-[0.2em] text-foreground group-hover:text-primary transition-colors duration-300">
               M.S

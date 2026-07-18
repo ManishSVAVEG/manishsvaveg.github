@@ -8,12 +8,12 @@ export default function About() {
       <div className="absolute inset-0 grid-bg opacity-40 pointer-events-none" />
 
       {/* Ambient glow */}
-      <div className="absolute top-1/2 left-0 w-96 h-96 bg-primary/8 rounded-full blur-[120px] -translate-y-1/2 pointer-events-none" />
-      <div className="absolute bottom-10 right-0 w-72 h-72 bg-secondary/6 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute top-1/2 left-0 w-96 h-96 bg-primary/4 rounded-full blur-[150px] -translate-y-1/2 pointer-events-none" />
+      <div className="absolute bottom-10 right-0 w-72 h-72 bg-secondary/3 rounded-full blur-[130px] pointer-events-none" />
 
       {/* Particle dots */}
-      <div className="particle-dot w-1.5 h-1.5 bg-primary/70 shadow-[0_0_8px_rgba(0,212,255,0.9)]" style={{ top: '18%', right: '8%', animation: 'particle-float-b 10s ease-in-out infinite 2s' }} />
-      <div className="particle-dot w-1 h-1 bg-accent/60 shadow-[0_0_6px_rgba(255,0,110,0.8)]" style={{ bottom: '22%', right: '15%', animation: 'particle-float-c 14s ease-in-out infinite' }} />
+      <div className="particle-dot w-1.5 h-1.5 bg-primary/30 shadow-[0_0_4px_rgba(0,212,255,0.3)]" style={{ top: '18%', right: '8%', animation: 'particle-float-b 10s ease-in-out infinite 2s' }} />
+      <div className="particle-dot w-1 h-1 bg-accent/25 shadow-[0_0_3px_rgba(255,0,110,0.3)]" style={{ bottom: '22%', right: '15%', animation: 'particle-float-c 14s ease-in-out infinite' }} />
 
       <div className="max-w-4xl mx-auto w-full relative z-10">
 

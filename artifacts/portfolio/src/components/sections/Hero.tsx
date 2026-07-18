@@ -25,13 +25,13 @@ export default function Hero() {
       <div className="absolute inset-0 grid-bg opacity-60 pointer-events-none" />
 
       {/* Radial ambient glow behind text */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[350px] bg-primary/3 rounded-full blur-[140px] pointer-events-none" />
 
       {/* Floating particle dots */}
-      <div className="particle-dot w-1.5 h-1.5 bg-primary/70 shadow-[0_0_8px_rgba(0,212,255,0.9)]" style={{ top: '22%', left: '15%', animation: 'particle-float-a 8s ease-in-out infinite' }} />
-      <div className="particle-dot w-1 h-1 bg-secondary/70 shadow-[0_0_6px_rgba(139,92,246,0.9)]" style={{ top: '65%', left: '10%', animation: 'particle-float-b 11s ease-in-out infinite 2s' }} />
-      <div className="particle-dot w-2 h-2 bg-accent/60 shadow-[0_0_8px_rgba(255,0,110,0.8)]" style={{ top: '30%', right: '12%', animation: 'particle-float-c 9s ease-in-out infinite 1s' }} />
-      <div className="particle-dot w-1 h-1 bg-primary/50 shadow-[0_0_5px_rgba(0,212,255,0.7)]" style={{ top: '70%', right: '18%', animation: 'particle-float-a 13s ease-in-out infinite 4s' }} />
+      <div className="particle-dot w-1.5 h-1.5 bg-primary/40 shadow-[0_0_4px_rgba(0,212,255,0.4)]" style={{ top: '22%', left: '15%', animation: 'particle-float-a 8s ease-in-out infinite' }} />
+      <div className="particle-dot w-1 h-1 bg-secondary/40 shadow-[0_0_3px_rgba(139,92,246,0.4)]" style={{ top: '65%', left: '10%', animation: 'particle-float-b 11s ease-in-out infinite 2s' }} />
+      <div className="particle-dot w-1.5 h-1.5 bg-accent/35 shadow-[0_0_4px_rgba(255,0,110,0.4)]" style={{ top: '30%', right: '12%', animation: 'particle-float-c 9s ease-in-out infinite 1s' }} />
+      <div className="particle-dot w-1 h-1 bg-primary/30 shadow-[0_0_3px_rgba(0,212,255,0.3)]" style={{ top: '70%', right: '18%', animation: 'particle-float-a 13s ease-in-out infinite 4s' }} />
 
       {/* Main layout */}
       <div className="max-w-6xl w-full mx-auto z-10 flex flex-col lg:flex-row items-center justify-center gap-10 lg:gap-16">

@@ -138,12 +138,12 @@ export default function Projects() {
       <div className="absolute inset-0 grid-bg opacity-50 pointer-events-none" />
 
       {/* Ambient glow */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-secondary/5 rounded-full blur-[150px] pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-primary/4 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-secondary/3 rounded-full blur-[180px] pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-primary/3 rounded-full blur-[140px] pointer-events-none" />
 
       {/* Particle dots */}
-      <div className="particle-dot w-1.5 h-1.5 bg-secondary/60 shadow-[0_0_8px_rgba(139,92,246,0.8)]" style={{ top: '20%', right: '8%', animation: 'particle-float-b 10s ease-in-out infinite' }} />
-      <div className="particle-dot w-1 h-1 bg-primary/60 shadow-[0_0_6px_rgba(0,212,255,0.8)]" style={{ bottom: '25%', left: '5%', animation: 'particle-float-a 13s ease-in-out infinite 3s' }} />
+      <div className="particle-dot w-1.5 h-1.5 bg-secondary/35 shadow-[0_0_4px_rgba(139,92,246,0.3)]" style={{ top: '20%', right: '8%', animation: 'particle-float-b 10s ease-in-out infinite' }} />
+      <div className="particle-dot w-1 h-1 bg-primary/30 shadow-[0_0_3px_rgba(0,212,255,0.3)]" style={{ bottom: '25%', left: '5%', animation: 'particle-float-a 13s ease-in-out infinite 3s' }} />
 
       <div className="max-w-6xl mx-auto w-full relative z-10">
 

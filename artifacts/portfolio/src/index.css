@@ -164,10 +164,10 @@
 
   /* ── Neon glow helpers ── */
   .neon-text-primary {
-    text-shadow: 0 0 8px rgba(0,212,255,0.8), 0 0 20px rgba(0,212,255,0.4);
+    text-shadow: 0 0 6px rgba(0,212,255,0.5), 0 0 14px rgba(0,212,255,0.2);
   }
   .neon-box {
-    box-shadow: 0 0 15px rgba(0,212,255,0.2), inset 0 0 15px rgba(0,212,255,0.05);
+    box-shadow: 0 0 8px rgba(0,212,255,0.12), inset 0 0 8px rgba(0,212,255,0.03);
   }
 
   /* ── Scanlines ── */
@@ -665,10 +665,10 @@
   background: rgba(0,212,255,0.04);
 }
 .skill-tag-primary:hover {
-  border-color: rgba(0,212,255,0.7);
+  border-color: rgba(0,212,255,0.6);
   color: #00D4FF;
-  background: rgba(0,212,255,0.12);
-  box-shadow: 0 0 12px rgba(0,212,255,0.25);
+  background: rgba(0,212,255,0.10);
+  box-shadow: 0 0 6px rgba(0,212,255,0.12);
 }
 .skill-tag-secondary {
   border-color: rgba(139,92,246,0.2);
@@ -676,10 +676,10 @@
   background: rgba(139,92,246,0.04);
 }
 .skill-tag-secondary:hover {
-  border-color: rgba(139,92,246,0.7);
+  border-color: rgba(139,92,246,0.6);
   color: #8B5CF6;
-  background: rgba(139,92,246,0.12);
-  box-shadow: 0 0 12px rgba(139,92,246,0.25);
+  background: rgba(139,92,246,0.10);
+  box-shadow: 0 0 6px rgba(139,92,246,0.12);
 }
 .skill-tag-accent {
   border-color: rgba(255,0,110,0.2);
@@ -687,18 +687,18 @@
   background: rgba(255,0,110,0.04);
 }
 .skill-tag-accent:hover {
-  border-color: rgba(255,0,110,0.7);
+  border-color: rgba(255,0,110,0.6);
   color: #FF006E;
-  background: rgba(255,0,110,0.12);
-  box-shadow: 0 0 12px rgba(255,0,110,0.25);
+  background: rgba(255,0,110,0.10);
+  box-shadow: 0 0 6px rgba(255,0,110,0.12);
 }
 
 /* ── Enhanced neon box ── */
 .neon-box-strong {
   box-shadow:
-    0 0 20px rgba(0,212,255,0.12),
-    0 0 60px rgba(0,212,255,0.04),
-    inset 0 0 20px rgba(0,212,255,0.025);
+    0 0 10px rgba(0,212,255,0.07),
+    0 0 30px rgba(0,212,255,0.02),
+    inset 0 0 10px rgba(0,212,255,0.015);
 }
 
 /* ── Hover lift ── */

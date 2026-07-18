@@ -60,12 +60,12 @@ export default function Skills() {
       <div className="absolute inset-0 grid-bg opacity-40 pointer-events-none" />
 
       {/* Ambient glow */}
-      <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-accent/4 rounded-full blur-[150px] pointer-events-none" />
-      <div className="absolute top-1/3 right-0 w-[300px] h-[300px] bg-secondary/4 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-accent/2 rounded-full blur-[180px] pointer-events-none" />
+      <div className="absolute top-1/3 right-0 w-[300px] h-[300px] bg-secondary/2 rounded-full blur-[130px] pointer-events-none" />
 
       {/* Particle dots */}
-      <div className="particle-dot w-1.5 h-1.5 bg-accent/60 shadow-[0_0_8px_rgba(255,0,110,0.8)]" style={{ top: '15%', right: '6%', animation: 'particle-float-c 9s ease-in-out infinite 1s' }} />
-      <div className="particle-dot w-1 h-1 bg-secondary/60 shadow-[0_0_6px_rgba(139,92,246,0.8)]" style={{ bottom: '20%', right: '12%', animation: 'particle-float-a 12s ease-in-out infinite 5s' }} />
+      <div className="particle-dot w-1.5 h-1.5 bg-accent/30 shadow-[0_0_4px_rgba(255,0,110,0.3)]" style={{ top: '15%', right: '6%', animation: 'particle-float-c 9s ease-in-out infinite 1s' }} />
+      <div className="particle-dot w-1 h-1 bg-secondary/30 shadow-[0_0_3px_rgba(139,92,246,0.3)]" style={{ bottom: '20%', right: '12%', animation: 'particle-float-a 12s ease-in-out infinite 5s' }} />
 
       <div className="max-w-6xl mx-auto w-full relative z-10">
 

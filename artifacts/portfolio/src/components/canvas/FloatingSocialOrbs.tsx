@@ -93,88 +93,103 @@ const orbs: Orb[] = [
 export default function FloatingSocialOrbs() {
   return (
     <div
-      className="absolute inset-0 pointer-events-none overflow-hidden"
-      style={{ zIndex: 5 }}
+      className="absolute inset-0 pointer-events-none"
+      style={{ zIndex: 15 }}
       aria-hidden="true"
     >
-      {orbs.map((orb, i) => (
-        <a
-          key={i}
-          href={orb.url}
-          target="_blank"
-          rel="noreferrer"
-          className="absolute flex flex-col items-center justify-center gap-1.5 rounded-full group"
-          style={{
-            width: orb.size,
-            height: orb.size,
-            top: orb.top,
-            left: orb.left,
-            pointerEvents: 'auto',
-            cursor: 'pointer',
-            animation: `orb-float-${i % 4} ${orb.animDur} ease-in-out infinite ${orb.animDelay}`,
-            '--dx': `${orb.driftX}px`,
-            '--dy': `${orb.driftY}px`,
-            /* 3-D sphere: bright specular at top-left, dark base, colored mid */
-            background: `
-              radial-gradient(circle at 32% 28%, rgba(255,255,255,0.28) 0%, transparent 42%),
-              radial-gradient(circle at 65% 70%, rgba(0,0,0,0.55) 0%, transparent 50%),
-              radial-gradient(circle at 50% 50%, color-mix(in srgb, ${orb.color} 55%, #0d1420) 0%, #060b14 75%)
-            `,
-            border: `1.5px solid ${orb.color}`,
-            boxShadow: `
-              0 0 ${orb.glowBlur}px      ${orb.color}88,
-              0 0 ${orb.glowBlur * 2}px  ${orb.color}33,
-              0 6px 20px rgba(0,0,0,0.6),
-              inset 0 -4px 12px rgba(0,0,0,0.5),
-              inset 0 3px 8px rgba(255,255,255,0.12)
-            `,
-            transition: 'transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease',
-          } as React.CSSProperties}
-          onMouseEnter={e => {
-            const el = e.currentTarget;
-            el.style.transform = 'scale(1.3) translateY(-4px)';
-            el.style.boxShadow = `
-              0 0 ${orb.glowBlur * 1.5}px ${orb.color}cc,
-              0 0 ${orb.glowBlur * 3}px   ${orb.color}55,
-              0 12px 30px rgba(0,0,0,0.7),
-              inset 0 -4px 12px rgba(0,0,0,0.5),
-              inset 0 3px 8px rgba(255,255,255,0.18)
-            `;
-          }}
-          onMouseLeave={e => {
-            const el = e.currentTarget;
-            el.style.transform = '';
-            el.style.boxShadow = `
-              0 0 ${orb.glowBlur}px      ${orb.color}88,
-              0 0 ${orb.glowBlur * 2}px  ${orb.color}33,
-              0 6px 20px rgba(0,0,0,0.6),
-              inset 0 -4px 12px rgba(0,0,0,0.5),
-              inset 0 3px 8px rgba(255,255,255,0.12)
-            `;
-          }}
-        >
-          {/* Icon */}
-          <orb.Icon
-            size={orb.size * 0.44}
-            color="#ffffff"
-            style={{ filter: `drop-shadow(0 0 6px ${orb.color})`, flexShrink: 0 }}
-          />
-
-          {/* Orbit ring */}
-          <span
-            className="absolute rounded-full"
+      {orbs.map((orb, i) => {
+        const touchSize = Math.max(orb.size, 44);
+        const pad = (touchSize - orb.size) / 2;
+        return (
+          <a
+            key={i}
+            href={orb.url}
+            target="_blank"
+            rel="noreferrer"
+            className="absolute flex items-center justify-center group"
             style={{
-              width: orb.size * 1.65,
-              height: orb.size * 0.42,
-              border: `1px solid ${orb.color}55`,
-              top: '50%', left: '50%',
-              transform: 'translate(-50%, -50%) rotateX(72deg)',
-              pointerEvents: 'none',
-              boxShadow: `0 0 6px ${orb.color}33`,
-            }}
-          />
-        </a>
-      ))}
+              /* Transparent touch target — at least 44×44 px on mobile */
+              width: touchSize,
+              height: touchSize,
+              top: `calc(${orb.top} - ${pad}px)`,
+              left: `calc(${orb.left} - ${pad}px)`,
+              pointerEvents: 'auto',
+              cursor: 'pointer',
+              touchAction: 'manipulation',
+              WebkitTapHighlightColor: 'transparent',
+              animation: `orb-float-${i % 4} ${orb.animDur} ease-in-out infinite ${orb.animDelay}`,
+              '--dx': `${orb.driftX}px`,
+              '--dy': `${orb.driftY}px`,
+            } as React.CSSProperties}
+          >
+            {/* Visual sphere — decoupled from touch target size */}
+            <span
+              className="relative flex items-center justify-center rounded-full flex-shrink-0"
+              style={{
+                width: orb.size,
+                height: orb.size,
+                background: `
+                  radial-gradient(circle at 32% 28%, rgba(255,255,255,0.28) 0%, transparent 42%),
+                  radial-gradient(circle at 65% 70%, rgba(0,0,0,0.55) 0%, transparent 50%),
+                  radial-gradient(circle at 50% 50%, color-mix(in srgb, ${orb.color} 55%, #0d1420) 0%, #060b14 75%)
+                `,
+                border: `1.5px solid ${orb.color}`,
+                boxShadow: `
+                  0 0 ${orb.glowBlur}px      ${orb.color}88,
+                  0 0 ${orb.glowBlur * 2}px  ${orb.color}33,
+                  0 6px 20px rgba(0,0,0,0.6),
+                  inset 0 -4px 12px rgba(0,0,0,0.5),
+                  inset 0 3px 8px rgba(255,255,255,0.12)
+                `,
+                transition: 'transform 0.25s ease, box-shadow 0.25s ease',
+              }}
+              onMouseEnter={e => {
+                const el = e.currentTarget as HTMLElement;
+                el.style.transform = 'scale(1.3) translateY(-4px)';
+                el.style.boxShadow = `
+                  0 0 ${orb.glowBlur * 1.5}px ${orb.color}cc,
+                  0 0 ${orb.glowBlur * 3}px   ${orb.color}55,
+                  0 12px 30px rgba(0,0,0,0.7),
+                  inset 0 -4px 12px rgba(0,0,0,0.5),
+                  inset 0 3px 8px rgba(255,255,255,0.18)
+                `;
+              }}
+              onMouseLeave={e => {
+                const el = e.currentTarget as HTMLElement;
+                el.style.transform = '';
+                el.style.boxShadow = `
+                  0 0 ${orb.glowBlur}px      ${orb.color}88,
+                  0 0 ${orb.glowBlur * 2}px  ${orb.color}33,
+                  0 6px 20px rgba(0,0,0,0.6),
+                  inset 0 -4px 12px rgba(0,0,0,0.5),
+                  inset 0 3px 8px rgba(255,255,255,0.12)
+                `;
+              }}
+            >
+              {/* Icon */}
+              <orb.Icon
+                size={orb.size * 0.44}
+                color="#ffffff"
+                style={{ filter: `drop-shadow(0 0 6px ${orb.color})`, flexShrink: 0 }}
+              />
+
+              {/* Orbit ring */}
+              <span
+                className="absolute rounded-full"
+                style={{
+                  width: orb.size * 1.65,
+                  height: orb.size * 0.42,
+                  border: `1px solid ${orb.color}55`,
+                  top: '50%', left: '50%',
+                  transform: 'translate(-50%, -50%) rotateX(72deg)',
+                  pointerEvents: 'none',
+                  boxShadow: `0 0 6px ${orb.color}33`,
+                }}
+              />
+            </span>
+          </a>
+        );
+      })}
 
       <style>{`
         @keyframes orb-float-0 {

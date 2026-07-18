@@ -33,7 +33,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-32 px-6 min-h-screen relative flex items-center">
+    <section id="contact" className="py-28 sm:py-32 px-4 sm:px-6 min-h-screen relative flex items-center">
       <div className="max-w-4xl mx-auto w-full relative z-10">
         <motion.div
           initial={{ opacity: 0, y: -30 }}

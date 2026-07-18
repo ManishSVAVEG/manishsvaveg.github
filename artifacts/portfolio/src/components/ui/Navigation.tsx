@@ -78,8 +78,8 @@ export default function Navigation() {
                 className="w-9 h-9 sm:w-10 sm:h-10 object-contain transition-all duration-300 group-hover:scale-105"
               />
             </div>
-            <span className="font-display font-bold text-base sm:text-lg tracking-[0.2em] text-foreground group-hover:text-primary transition-colors duration-300">
-              M.S
+            <span className="font-display font-bold text-sm sm:text-base tracking-[0.12em] text-foreground group-hover:text-primary transition-colors duration-300 whitespace-nowrap">
+              Manish Svaveg
             </span>
           </a>
 

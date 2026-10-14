@@ -28,18 +28,36 @@ const TypewriterText = ({ text }: { text: string }) => {
 };
 
 export default function Hero() {
+  const badges = [
+    {
+      label: 'AI Developer',
+      color: 'border-primary/40 bg-primary/8 text-primary/80',
+    },
+    {
+      label: 'Delhi 🇮🇳',
+      color: 'border-secondary/40 bg-secondary/8 text-secondary/80',
+    },
+    {
+      label: 'LearnovaX Founder',
+      color: 'border-accent/40 bg-accent/8 text-accent/80',
+    },
+    {
+      label: 'IIT Aspirant',
+      color: 'border-primary/30 bg-primary/5 text-primary/60',
+    },
+  ];
+
   return (
     <section
       id="hero"
       className="min-h-screen flex items-center justify-center pt-20 px-4 sm:px-6 relative overflow-hidden"
     >
-      {/* Subtle grid overlay */}
+      {/* Background */}
       <div className="absolute inset-0 grid-bg opacity-60 pointer-events-none" />
 
-      {/* Radial ambient glow behind text */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[350px] bg-primary/3 rounded-full blur-[140px] pointer-events-none" />
 
-      {/* Floating particle dots */}
+      {/* Floating particles */}
       <div
         className="particle-dot w-1.5 h-1.5 bg-primary/40 shadow-[0_0_4px_rgba(0,212,255,0.4)]"
         style={{
@@ -78,7 +96,6 @@ export default function Hero() {
 
       {/* Main layout */}
       <div className="max-w-6xl w-full mx-auto z-10 flex flex-col lg:flex-row items-center justify-center gap-10 lg:gap-16">
-
         {/* Social Cube */}
         <motion.div
           initial={{ opacity: 0, x: -40, rotateY: -30 }}
@@ -91,7 +108,6 @@ export default function Hero() {
 
         {/* Text content */}
         <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
-
           {/* Eyebrow */}
           <motion.div
             initial={{ opacity: 0, y: 10 }}
@@ -138,30 +154,28 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.3 }}
           >
-            {[
-              {
-                label: 'AI Developer',
-                color: 'border-primary/40 bg-primary/8 text-primary/80',
-              },
-              {
-                label: 'Delhi 🇮🇳',
-                color: 'border-secondary/40 bg-secondary/8 text-secondary/80',
-              },
-              {
-                label: 'LearnovaX Founder',
-                color: 'border-accent/40 bg-accent/8 text-accent/80',
-              },
-              {
-                label: 'IIT Aspirant',
-                color: 'border-primary/30 bg-primary/5 text-primary/60',
-              },
-            ].map((b) => (
+            {badges.map((badge) => (
               <span
-                key={b.label}
-                className={`font-mono text-[10px] px-3 py-1.5 border ${b.color} tracking-widest uppercase flex items-center gap-1.5 transition-all duration-300 hover:brightness-125`}
+                key={badge.label}
+                className={[
+                  'font-mono',
+                  'text-[10px]',
+                  'px-3',
+                  'py-1.5',
+                  'border',
+                  badge.color,
+                  'tracking-widest',
+                  'uppercase',
+                  'flex',
+                  'items-center',
+                  'gap-1.5',
+                  'transition-all',
+                  'duration-300',
+                  'hover:brightness-125',
+                ].join(' ')}
               >
                 <span className="w-1 h-1 rounded-full bg-current opacity-60" />
-                {b.label}
+                {badge.label}
               </span>
             ))}
           </motion.div>
@@ -174,7 +188,7 @@ export default function Hero() {
             transition={{ delay: 1.5, duration: 0.6 }}
           />
 
-          {/* CTAs */}
+          {/* Buttons */}
           <motion.div
             className="mt-8 flex flex-col sm:flex-row gap-4 w-full sm:w-auto"
             initial={{ opacity: 0, y: 20 }}
@@ -213,7 +227,6 @@ export default function Hero() {
         <span className="font-mono text-[9px] tracking-[0.4em] uppercase">
           Scroll
         </span>
-
         <div className="w-px h-10 bg-gradient-to-b from-primary/60 to-transparent" />
         <div className="w-1 h-1 rounded-full bg-primary/40 animate-bounce" />
       </motion.div>

@@ -1,5 +1,6 @@
 ```tsx
 import { useState, useRef, useEffect } from 'react';
+import type { MouseEvent, CSSProperties } from 'react';
 import {
   SiGithub,
   SiYoutube,
@@ -15,11 +16,15 @@ type Face = 'front' | 'back' | 'left' | 'right' | 'top' | 'bottom';
 
 const FACE_ORDER: Face[] = ['front', 'right', 'back', 'left'];
 
+type CubeStyle = CSSProperties & {
+  '--hs': string;
+  '--link-color'?: string;
+};
+
 export default function SocialCube() {
   const [rotY, setRotY] = useState(0);
   const [rotX, setRotX] = useState(12);
   const [paused, setPaused] = useState(false);
-  const [activeFace, setActiveFace] = useState(0);
 
   const rafRef = useRef<number>(0);
   const lastRef = useRef<number>(0);
@@ -42,9 +47,8 @@ export default function SocialCube() {
 
         rotRef.current += dt * 0.025;
         setRotY(rotRef.current);
-        setActiveFace(
-          Math.round(rotRef.current / 90) % FACE_ORDER.length,
-        );
+      } else {
+        lastRef.current = 0;
       }
 
       rafRef.current = requestAnimationFrame(tick);
@@ -56,7 +60,7 @@ export default function SocialCube() {
   }, [paused]);
 
   // Mouse drag rotation
-  const onMouseDown = (e: React.MouseEvent) => {
+  const onMouseDown = (e: MouseEvent<HTMLDivElement>) => {
     e.preventDefault();
 
     isDragging.current = true;
@@ -72,7 +76,7 @@ export default function SocialCube() {
   };
 
   useEffect(() => {
-    const onMove = (e: MouseEvent) => {
+    const onMove = (e: globalThis.MouseEvent) => {
       if (!isDragging.current) return;
 
       const dx = e.clientX - dragStart.current.x;
@@ -90,7 +94,10 @@ export default function SocialCube() {
     };
 
     const onUp = () => {
+      if (!isDragging.current) return;
+
       isDragging.current = false;
+      setPaused(false);
     };
 
     window.addEventListener('mousemove', onMove);
@@ -100,16 +107,22 @@ export default function SocialCube() {
       window.removeEventListener('mousemove', onMove);
       window.removeEventListener('mouseup', onUp);
     };
-  }, [rotX, rotY]);
+  }, []);
 
-  // Touch drag
+  // Touch drag rotation
   useEffect(() => {
     const el = document.getElementById('social-cube-wrap');
 
     if (!el) return;
 
+    let resumeTimer: ReturnType<typeof setTimeout> | undefined;
+
     const onTS = (e: TouchEvent) => {
+      if (e.touches.length !== 1) return;
+
       e.preventDefault();
+
+      if (resumeTimer) clearTimeout(resumeTimer);
 
       isDragging.current = true;
 
@@ -124,7 +137,7 @@ export default function SocialCube() {
     };
 
     const onTM = (e: TouchEvent) => {
-      if (!isDragging.current) return;
+      if (!isDragging.current || e.touches.length !== 1) return;
 
       e.preventDefault();
 
@@ -143,18 +156,27 @@ export default function SocialCube() {
     };
 
     const onTE = () => {
+      if (!isDragging.current) return;
+
       isDragging.current = false;
-      setTimeout(() => setPaused(false), 1000);
+
+      resumeTimer = setTimeout(() => {
+        setPaused(false);
+      }, 1000);
     };
 
     el.addEventListener('touchstart', onTS, { passive: false });
     el.addEventListener('touchmove', onTM, { passive: false });
     el.addEventListener('touchend', onTE);
+    el.addEventListener('touchcancel', onTE);
 
     return () => {
       el.removeEventListener('touchstart', onTS);
       el.removeEventListener('touchmove', onTM);
       el.removeEventListener('touchend', onTE);
+      el.removeEventListener('touchcancel', onTE);
+
+      if (resumeTimer) clearTimeout(resumeTimer);
     };
   }, [rotY, rotX]);
 
@@ -200,6 +222,8 @@ export default function SocialCube() {
   const sz = 220;
   const hs = sz / 2;
 
+  const faceStyle: CubeStyle = { '--hs': `${hs}px` };
+
   return (
     <div
       id="social-cube-wrap"
@@ -215,7 +239,9 @@ export default function SocialCube() {
         }}
         onMouseDown={onMouseDown}
         onClick={() => {
-          if (!isDragging.current) setPaused((p) => !p);
+          if (!isDragging.current) {
+            setPaused((p) => !p);
+          }
         }}
       >
         <div
@@ -233,7 +259,7 @@ export default function SocialCube() {
           {/* FRONT: Profile */}
           <div
             className="cube-face-3d face-front"
-            style={{ '--hs': `${hs}px` } as React.CSSProperties}
+            style={faceStyle}
           >
             <div className="face-inner">
               <img src={logoPath} alt="MS" className="face-logo" />
@@ -253,7 +279,7 @@ export default function SocialCube() {
           {/* BACK: YouTube + Instagram */}
           <div
             className="cube-face-3d face-back"
-            style={{ '--hs': `${hs}px` } as React.CSSProperties}
+            style={faceStyle}
           >
             <div className="face-inner">
               <div className="face-label">FOLLOW</div>
@@ -267,7 +293,7 @@ export default function SocialCube() {
                       target="_blank"
                       rel="noreferrer"
                       className="face-link"
-                      style={{ '--link-color': color } as React.CSSProperties}
+                      style={{ '--link-color': color } as CubeStyle}
                       onClick={(e) => e.stopPropagation()}
                     >
                       <Icon size={22} />
@@ -282,7 +308,7 @@ export default function SocialCube() {
           {/* LEFT: GitHub + LinkedIn */}
           <div
             className="cube-face-3d face-left"
-            style={{ '--hs': `${hs}px` } as React.CSSProperties}
+            style={faceStyle}
           >
             <div className="face-inner">
               <div className="face-label">CODE</div>
@@ -296,7 +322,7 @@ export default function SocialCube() {
                       target="_blank"
                       rel="noreferrer"
                       className="face-link"
-                      style={{ '--link-color': color } as React.CSSProperties}
+                      style={{ '--link-color': color } as CubeStyle}
                       onClick={(e) => e.stopPropagation()}
                     >
                       <Icon size={22} />
@@ -311,7 +337,7 @@ export default function SocialCube() {
           {/* RIGHT: Threads + Discord */}
           <div
             className="cube-face-3d face-right"
-            style={{ '--hs': `${hs}px` } as React.CSSProperties}
+            style={faceStyle}
           >
             <div className="face-inner">
               <div className="face-label">JOIN</div>
@@ -325,7 +351,7 @@ export default function SocialCube() {
                       target="_blank"
                       rel="noreferrer"
                       className="face-link"
-                      style={{ '--link-color': color } as React.CSSProperties}
+                      style={{ '--link-color': color } as CubeStyle}
                       onClick={(e) => e.stopPropagation()}
                     >
                       <Icon size={22} />
@@ -340,7 +366,7 @@ export default function SocialCube() {
           {/* TOP: Tagline */}
           <div
             className="cube-face-3d face-top"
-            style={{ '--hs': `${hs}px` } as React.CSSProperties}
+            style={faceStyle}
           >
             <div className="face-inner face-top-inner">
               <div className="face-tag">
@@ -356,7 +382,7 @@ export default function SocialCube() {
           {/* BOTTOM: Email */}
           <div
             className="cube-face-3d face-bottom"
-            style={{ '--hs': `${hs}px` } as React.CSSProperties}
+            style={faceStyle}
           >
             <div className="face-inner">
               <Mail size={24} color="#00D4FF" />
@@ -375,11 +401,11 @@ export default function SocialCube() {
 
       {/* Face indicator dots */}
       <div className="cube-dots">
-        {FACE_ORDER.map((_, i) => (
+        {FACE_ORDER.map((face, i) => (
           <span
-            key={i}
+            key={face}
             className={`cube-dot${
-              Math.round(((-rotY) / 90) % 4 + 4) % 4 === i
+              Math.round(((-rotY / 90) % 4 + 4) % 4) === i
                 ? ' active'
                 : ''
             }`}
